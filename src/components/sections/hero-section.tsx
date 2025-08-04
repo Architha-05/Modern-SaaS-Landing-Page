@@ -5,6 +5,7 @@ import { GradientText } from '@/components/ui/gradient-text'
 import { Badge } from '@/components/ui/badge'
 import heroDashboard from '@/assets/hero-dashboard.jpg'
 
+
 export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -63,7 +64,7 @@ export const HeroSection = () => {
             <div className="relative max-w-4xl mx-auto">
               <div className="glass rounded-2xl p-4 hover-lift">
                 <img
-                  src="/src/assets/hero-dashboard.jpg"
+                  src={heroDashboard}
                   alt="ADmyBRAND AI Suite Dashboard"
                   className="w-full rounded-xl shadow-2xl"
                 />
