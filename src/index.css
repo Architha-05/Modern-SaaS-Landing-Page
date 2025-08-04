@@ -1,13 +1,247 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern SaaS Design System - ADmyBRAND AI Suite */
+
+@layer base {
+  :root {
+    /* Core Brand Colors */
+    --background: 240 10% 3.9%;
+    --background-secondary: 240 3% 6%;
+    --foreground: 0 0% 98%;
+
+    /* Glass Effect Colors */
+    --glass-background: 240 10% 10%;
+    --glass-border: 240 15% 20%;
+    --glass-overlay: 240 10% 15%;
+
+    /* Brand Purple/Blue Gradients */
+    --primary: 252 89% 67%; /* Bright purple */
+    --primary-foreground: 0 0% 100%;
+    --primary-muted: 251 91% 85%;
+    
+    --secondary: 217 91% 59%; /* Bright blue */
+    --secondary-foreground: 0 0% 100%;
+    --secondary-muted: 217 91% 80%;
+
+    /* Accent Colors */
+    --accent: 269 100% 75%; /* Purple accent */
+    --accent-foreground: 0 0% 100%;
+    
+    --muted: 240 5% 84%;
+    --muted-foreground: 240 4% 46%;
+
+    /* Semantic Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --success: 142 72% 29%;
+    --success-foreground: 0 0% 98%;
+
+    /* UI Elements */
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --border: 240 6% 20%;
+    --input: 240 6% 20%;
+    --ring: 252 89% 67%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(252 89% 67%), hsl(217 91% 59%));
+    --gradient-secondary: linear-gradient(135deg, hsl(269 100% 75%), hsl(252 89% 67%));
+    --gradient-hero: linear-gradient(135deg, hsl(240 10% 3.9%) 0%, hsl(252 89% 67% / 0.1) 50%, hsl(217 91% 59% / 0.1) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(240 10% 15% / 0.8), hsl(240 15% 20% / 0.4));
+    
+    /* Shadows */
+    --shadow-glass: 0 8px 32px hsl(240 10% 3.9% / 0.5);
+    --shadow-glow: 0 0 80px hsl(252 89% 67% / 0.3);
+    --shadow-card: 0 4px 16px hsl(240 10% 3.9% / 0.3);
+
+    /* Typography */
+    --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Spacing & Sizing */
+    --radius: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Sidebar */
+    --sidebar-background: 240 10% 6%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 252 89% 67%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 6% 20%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 6% 20%;
+    --sidebar-ring: 252 89% 67%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --background-secondary: 240 5% 96%;
+    --foreground: 240 10% 3.9%;
+
+    --glass-background: 240 5% 98%;
+    --glass-border: 240 10% 90%;
+    --glass-overlay: 240 5% 95%;
+
+    --primary: 252 89% 67%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 217 91% 59%;
+    --secondary-foreground: 0 0% 100%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+
+    --shadow-glass: 0 8px 32px hsl(240 10% 3.9% / 0.1);
+    --shadow-glow: 0 0 80px hsl(252 89% 67% / 0.2);
+    --shadow-card: 0 4px 16px hsl(240 10% 3.9% / 0.1);
+    
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(252 89% 67% / 0.05) 50%, hsl(217 91% 59% / 0.05) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(240 5% 98% / 0.8), hsl(240 10% 90% / 0.4));
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer components {
+  /* Glass Effect Components */
+  .glass {
+    @apply bg-gradient-to-br from-glass-background/80 to-glass-overlay/40 backdrop-blur-xl border border-glass-border/50;
+    box-shadow: var(--shadow-glass);
+  }
+
+  .glass-card {
+    @apply glass rounded-xl p-6;
+  }
+
+  .glass-button {
+    @apply glass rounded-lg px-6 py-3 transition-all duration-300 hover:shadow-lg hover:scale-105;
+  }
+
+  /* Gradient Components */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  /* Animation Components */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  /* Scroll Animations */
+  .scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Interactive Elements */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-glow;
+  }
+
+  /* Typography */
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-hero {
+    @apply text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight;
+  }
+
+  .text-section {
+    @apply text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 20px hsl(252 89% 67% / 0.3); }
+  to { box-shadow: 0 0 40px hsl(252 89% 67% / 0.6), 0 0 60px hsl(217 91% 59% / 0.4); }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
