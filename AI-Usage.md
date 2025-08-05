@@ -1,5 +1,5 @@
 ## AI Tools Used
-- **Primary tools:** ChatGPT, GitHub Copilot, v0.dev
+- **Primary tools:** ChatGPT, GitHub Copilot, v0.dev, Lovable, Bolt.new
 - **Key use cases:** 
   - Generating React component scaffolding
   - Writing Tailwind CSS utility classes
